@@ -33,10 +33,10 @@ public class AICharacter : Character {
         GameObject player = GameObject.Find("Player");
         if (player == null) return;
 
-        if (player.transform.position.x > transform.position.x && facingRight)
-            facingRight = false;
-        else if (player.transform.position.x < transform.position.x && !facingRight)
+        if (player.transform.position.x > transform.position.x && !facingRight)
             facingRight = true;
+        else if (player.transform.position.x < transform.position.x && facingRight)
+            facingRight = false;
 
 
         targetDirection = player.transform.position;
