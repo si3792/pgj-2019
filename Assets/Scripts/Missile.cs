@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMissile : MonoBehaviour
+public class Missile : MonoBehaviour
 {
     public int damage = 1;
     public float powerMultiplire;
@@ -11,19 +11,18 @@ public class PlayerMissile : MonoBehaviour
     public float range;
     private Vector3 targetPosition;
     private bool targetSet = false;
+    private bool blockMovement = false;
+    public bool isPlayerMissile = false;
 
-    /*
-    public void OnEnable() {
-        Debug.Log("spawing");
-        Character player = GameObject.Find("Player").GetComponent<Character>();
-        damage = Mathf.RoundToInt(player.power * powerMultiplire);
-        goingRight = player.facingRight;
-        targetPosition = transform.position;
-        targetPosition.x += goingRight ? range : -range;
-        Debug.Log(targetPosition);
+    public void SetTarget(Vector3 targetPosition, Vector3 currentPosition, bool facingRight, int power) {
+        blockMovement = true;
+        SetPosition(currentPosition, facingRight, power);
+        this.targetPosition = targetPosition;
+        blockMovement = false;
+        
     }
-    */
-    public void SetTarget(Vector3 currentPosition, bool facingRight, int power) {
+
+    public void SetPosition(Vector3 currentPosition, bool facingRight, int power) {
         targetPosition = currentPosition;
         damage = Mathf.RoundToInt(power * powerMultiplire);
         goingRight = facingRight;
@@ -31,11 +30,12 @@ public class PlayerMissile : MonoBehaviour
         targetSet = true;
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        if (!targetSet) return;
+        if (!targetSet || blockMovement) return;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, acceleration);
-        if(transform.position == targetPosition) { Destroy(this.gameObject); }
+        if(transform.position == targetPosition) {Debug.Log("Destroying"); Destroy(this.gameObject); }
     }
 }

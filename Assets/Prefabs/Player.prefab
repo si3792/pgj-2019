@@ -134,6 +134,7 @@ MonoBehaviour:
   goingRight: 0
   acceleration: 0.5
   range: 6
+  isPlayerMissile: 1
 --- !u!1 &4051192501488769603
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +542,15 @@ MonoBehaviour:
   missileCost: 1
   missileCoolDown: 5
   canUseMissile: 1
+  canUseBuff: 1
+  buffDuration: 3
+  buffCoolDown: 10
+  buffCost: 3
+  canShield: 1
+  shieldDurarion: 5
+  shieldCoolDown: 10
+  isShielded: 0
+  shieldCost: 3
 --- !u!1 &6445033692391085716
 GameObject:
   m_ObjectHideFlags: 0

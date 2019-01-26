@@ -54,6 +54,10 @@ public class PlayerCharacter : Character
         if (attack != null && !attack.isPlayerAttack) {
             TakeDamage(attack.damage);
         }
+        Missile missle = collision.GetComponent<Missile>();
+        if (missle != null && !missle.isPlayerMissile) {
+            TakeDamage(missle.damage);
+        }
     }
 
     public virtual void PowerUp(int powerValue, int healthValue) {
@@ -86,7 +90,7 @@ public class PlayerCharacter : Character
         position.x += facingRight ? 1 : -1;
         GameObject newMissile =  (GameObject)Instantiate(playeMissile, position, Quaternion.identity);
         newMissile.SetActive(true);
-        newMissile.GetComponent<PlayerMissile>().SetTarget(position, facingRight, power);
+        newMissile.GetComponent<Missile>().SetPosition(position, facingRight, power);
         currentHitPoints -= missileCost;
         attacking = true;
         canAttack = false;

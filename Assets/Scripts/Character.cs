@@ -22,18 +22,22 @@ public class Character : MonoBehaviour
         
     }
 
-    protected void Attack() {
+    protected virtual void Attack() {
         if (!attacking && canAttack) {
             if (facingRight) {
                 attackRight.gameObject.SetActive(true);
 
             }
             else { attackLeft.gameObject.SetActive(true); }
-            attacking = true;
-            canAttack = false;
-            Invoke("ResetAttackingFlag", attackTime);
-            Invoke("ResetAttack", attackCoolDown);
+            SetAttackTriggers();
         }
+    }
+
+    protected void SetAttackTriggers() {
+        attacking = true;
+        canAttack = false;
+        Invoke("ResetAttackingFlag", attackTime);
+        Invoke("ResetAttack", attackCoolDown);
     }
 
     private void ResetAttackingFlag() { attacking = false; }

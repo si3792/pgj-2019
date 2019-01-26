@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 6825527696576650191}
   - component: {fileID: 6825527696576650178}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: MeleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,6 +401,8 @@ MonoBehaviour:
   speed: 1
   inAttackRange: 0
   attackDelay: 0.5
+  powerValue: 1
+  healthValue: 1
 --- !u!50 &6825527696576650191
 Rigidbody2D:
   serializedVersion: 4
