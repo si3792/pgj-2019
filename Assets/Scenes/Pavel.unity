@@ -245,6 +245,26 @@ PrefabInstance:
       propertyPath: playeMissile
       value: 
       objectReference: {fileID: 1013993685}
+    - target: {fileID: 6255121519787717664, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: maxHitPoints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255121519787717664, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: currentHitPoints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255121519787717664, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: power
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255121519787717664, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: shieldCost
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6445033690448939493, guid: 9e124e7a7d8bcb1498492a894491f3ee, type: 3}
     - {fileID: 6445033692391085718, guid: 9e124e7a7d8bcb1498492a894491f3ee, type: 3}

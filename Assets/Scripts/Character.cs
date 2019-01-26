@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
     private void ResetAttack() { canAttack = true; }
 
 
-    protected void TakeDamage(int damage) {
+    protected virtual void TakeDamage(int damage) {
         currentHitPoints-=damage;
         if (currentHitPoints <= 0) { Die(); }
     }

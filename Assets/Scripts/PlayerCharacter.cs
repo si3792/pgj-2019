@@ -17,6 +17,11 @@ public class PlayerCharacter : Character
     public float buffCoolDown = 10f;
     public int buffCost = 3;
     private int buffedAmount;
+    public bool canShield = true;
+    public float shieldDurarion = 5f;
+    public float shieldCoolDown = 10f;
+    public bool isShielded = false;
+    public int shieldCost = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +41,11 @@ public class PlayerCharacter : Character
         if (Input.GetButtonDown("Fire3")) {
             SpawnMissile();
         }
-        if (Input.GetButtonDown("Submit")) {
+        if (Input.GetButtonDown("Buff1")) {
             CastBuff();
+        }
+        if (Input.GetButton("Buff2")) {
+            CastShield();
         }
     }
 
@@ -100,6 +108,7 @@ public class PlayerCharacter : Character
 
         buffedAmount = power;
         power += buffedAmount;
+        currentHitPoints -= buffCost;
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ClearBuff", buffDuration);
@@ -111,4 +120,25 @@ public class PlayerCharacter : Character
     }
 
     private void ResetBuff() { canUseBuff = true; }
+
+    private void CastShield() {
+        if (!canAttack || !canShield || currentHitPoints <= buffCost) { return; }
+        isShielded = true;
+        canShield = false;
+        currentHitPoints -= shieldCost;
+        Invoke("ClearShield", shieldDurarion);
+        Invoke("ResetShield", shieldCoolDown);
+
+    }
+
+    private void ClearShield() { isShielded = false; }
+
+    private void ResetShield() {
+        canShield = true;
+    }
+
+    protected override void TakeDamage(int damage) {
+        if (!isShielded) { base.TakeDamage(damage); }
+        Debug.Log(currentHitPoints);
+    }
 }
