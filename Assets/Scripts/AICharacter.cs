@@ -51,8 +51,7 @@ public class AICharacter : Character {
     private void OnTriggerEnter2D(Collider2D collision) {
         Attack attack = collision.GetComponent<Attack>();
         if (attack != null && attack.isPlayerAttack) {
-            TakeDamage();
-            Debug.Log("Getting Hit");
+            TakeDamage(attack.damage);
         }
     }
 }

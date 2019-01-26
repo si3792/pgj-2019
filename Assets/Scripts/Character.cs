@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public bool canAttack = true;
     public int maxHitPoints = 3;
     public int currentHitPoints = 3;
+    public int power = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +50,12 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         Attack attack = collision.GetComponent<Attack>();
         if (attack!=null && !attack.isPlayerAttack) {
-            TakeDamage();
+            TakeDamage(attack.damage);
         }
     }
 
-    protected void TakeDamage() {
-        currentHitPoints--;
+    protected void TakeDamage(int damage) {
+        currentHitPoints-=damage;
         if (currentHitPoints == 0) { Die(); }
     }
 
