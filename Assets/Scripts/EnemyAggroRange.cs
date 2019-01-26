@@ -6,7 +6,6 @@ public class EnemyAggroRange : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
-            Debug.Log("Player");
             GetComponentInParent<AICharacter>().inAggroRange = true;
         }
     }

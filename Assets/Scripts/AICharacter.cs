@@ -9,6 +9,8 @@ public class AICharacter : Character {
     Rigidbody2D rigidBody;
     private Vector3 targetDirection;
     public float attackDelay = 0.2f;
+    public int powerValue = 1;
+    public int healthValue = 1;
 
     // Start is called before the first frame update
     void Start() {
@@ -33,10 +35,10 @@ public class AICharacter : Character {
         GameObject player = GameObject.Find("Player");
         if (player == null) return;
 
-        if (player.transform.position.x > transform.position.x && facingRight)
-            facingRight = false;
-        else if (player.transform.position.x < transform.position.x && !facingRight)
+        if (player.transform.position.x > transform.position.x && !facingRight)
             facingRight = true;
+        else if (player.transform.position.x < transform.position.x && facingRight)
+            facingRight = false;
 
 
         targetDirection = player.transform.position;
@@ -48,10 +50,21 @@ public class AICharacter : Character {
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
     }
 
+    protected override void Die() {
+        base.Die();
+        GameObject.Find("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         Attack attack = collision.GetComponent<Attack>();
         if (attack != null && attack.isPlayerAttack) {
             TakeDamage(attack.damage);
         }
+        Missile missle = collision.GetComponent<Missile>();
+        if(missle!=null && missle.isPlayerMissile) {
+            TakeDamage(missle.damage);
+        }
     }
+
+    
 }
