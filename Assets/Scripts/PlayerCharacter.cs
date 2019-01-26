@@ -71,7 +71,7 @@ public class PlayerCharacter : Character
     private void SpawnShockWave() {
         if (currentHitPoints <= shockWaveCost || !canUseShockWave || !canAttack) return;
         shockWave.gameObject.SetActive(true);
-        currentHitPoints -= shockWaveCost;
+        TakeDamage(shockWaveCost);
         attacking = true;
         canAttack = false;
         canUseShockWave = false;
@@ -92,7 +92,7 @@ public class PlayerCharacter : Character
         GameObject newMissile =  (GameObject)Instantiate(playeMissile, position, Quaternion.identity);
         newMissile.SetActive(true);
         newMissile.GetComponent<Missile>().SetPosition(position, facingRight, power);
-        currentHitPoints -= missileCost;
+        TakeDamage(missileCost);
         attacking = true;
         canAttack = false;
         canUseMissile = false;
@@ -113,7 +113,7 @@ public class PlayerCharacter : Character
 
         buffedAmount = power;
         power += buffedAmount;
-        currentHitPoints -= buffCost;
+        TakeDamage(buffCost);
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ClearBuff", buffDuration);
@@ -130,7 +130,7 @@ public class PlayerCharacter : Character
         if (!canAttack || !canShield || currentHitPoints <= buffCost) { return; }
         isShielded = true;
         canShield = false;
-        currentHitPoints -= shieldCost;
+        TakeDamage(shieldCost);
         Invoke("ClearShield", shieldDurarion);
         Invoke("ResetShield", shieldCoolDown);
 

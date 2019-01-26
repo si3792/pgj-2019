@@ -559,7 +559,7 @@ PrefabInstance:
     - target: {fileID: 7621218226613408457, guid: 3ac13392bb60b4e40b2bf85a9f0768e2,
         type: 3}
       propertyPath: acceleration
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6542533316080253536, guid: 3ac13392bb60b4e40b2bf85a9f0768e2,
         type: 3}
@@ -629,6 +629,11 @@ PrefabInstance:
     - target: {fileID: 1736849523, guid: 3ac13392bb60b4e40b2bf85a9f0768e2, type: 3}
       propertyPath: m_LocalScale.y
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012087959359292385, guid: 3ac13392bb60b4e40b2bf85a9f0768e2,
+        type: 3}
+      propertyPath: attackCoolDown
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ac13392bb60b4e40b2bf85a9f0768e2, type: 3}

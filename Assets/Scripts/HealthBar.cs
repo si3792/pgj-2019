@@ -25,17 +25,15 @@ public class HealthBar : MonoBehaviour
         float currentHitPoints = character.currentHitPoints;
         float normalizedHitPoints = 1f;
 
-        if(currentHitPoints <= 0)
+        normalizedHitPoints = currentHitPoints / maxHitPoints;
+
+        if (currentHitPoints <= 0)
         {
             normalizedHitPoints = 0;
         }
         else if(currentHitPoints >= maxHitPoints)
         {
             normalizedHitPoints = 1;
-        }
-        else
-        {
-            normalizedHitPoints = currentHitPoints / maxHitPoints;
         }
         Debug.Log("normalizedHitPoints = " + normalizedHitPoints);
         SetSize(normalizedHitPoints);
