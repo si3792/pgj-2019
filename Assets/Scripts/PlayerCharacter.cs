@@ -22,11 +22,13 @@ public class PlayerCharacter : Character
     public float shieldCoolDown = 10f;
     public bool isShielded = false;
     public int shieldCost = 3;
-
+    private AudioManager audioManager;
+    
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -66,6 +68,7 @@ public class PlayerCharacter : Character
         if (currentHitPoints > maxHitPoints) { maxHitPoints += currentHitPoints - maxHitPoints; }
         Debug.Log(power + " " + currentHitPoints + " " + maxHitPoints);
         base.PowerUp(powerValue, healthValue);
+        TriggerLowAudio();
     }
 
     private void SpawnShockWave() {
@@ -143,7 +146,26 @@ public class PlayerCharacter : Character
     }
 
     protected override void TakeDamage(int damage) {
-        if (!isShielded) { base.TakeDamage(damage); }
+        if(!isShielded)
+        {
+            base.TakeDamage(damage);
+        }
+        TriggerLowAudio();
         Debug.Log(currentHitPoints);
+    }
+
+    private void TriggerLowAudio()
+    {
+        string audio = "lowHealth";
+        if (currentHitPoints == 1)
+        {
+            audioManager.Play(audio);
+        } else
+        {
+            if(audioManager.IsPlaying(audio))
+            {
+                audioManager.Stop(audio);
+            }
+        }
     }
 }
