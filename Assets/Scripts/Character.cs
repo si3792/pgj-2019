@@ -14,12 +14,12 @@ public class Character : MonoBehaviour
     public int maxHitPoints = 3;
     public int currentHitPoints = 3;
     public int power = 1;
-
+    private HealthBar healthBar;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        
+        healthBar = GetComponentInChildren<HealthBar>();
     }
 
     protected virtual void Attack() {
@@ -31,6 +31,10 @@ public class Character : MonoBehaviour
             else { attackLeft.gameObject.SetActive(true); }
             SetAttackTriggers();
         }
+    }
+
+    public virtual void PowerUp(int powerValue, int healthValue) {
+        healthBar.HealthChange();
     }
 
     protected void SetAttackTriggers() {
@@ -46,6 +50,7 @@ public class Character : MonoBehaviour
 
     protected virtual void TakeDamage(int damage) {
         currentHitPoints-=damage;
+        healthBar.HealthChange();
         if (currentHitPoints <= 0) { Die(); }
     }
 

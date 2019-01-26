@@ -15,6 +15,7 @@ public class AICharacter : Character {
     // Start is called before the first frame update
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
+        base.Start();
     }
 
     // Update is called once per frame

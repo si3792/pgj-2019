@@ -26,7 +26,7 @@ public class PlayerCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
@@ -60,11 +60,12 @@ public class PlayerCharacter : Character
         }
     }
 
-    public virtual void PowerUp(int powerValue, int healthValue) {
+    public override void PowerUp(int powerValue, int healthValue) {
         power += powerValue;
         currentHitPoints += healthValue;
         if (currentHitPoints > maxHitPoints) { maxHitPoints += currentHitPoints - maxHitPoints; }
         Debug.Log(power + " " + currentHitPoints + " " + maxHitPoints);
+        base.PowerUp(powerValue, healthValue);
     }
 
     private void SpawnShockWave() {
