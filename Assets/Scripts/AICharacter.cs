@@ -9,6 +9,8 @@ public class AICharacter : Character {
     Rigidbody2D rigidBody;
     private Vector3 targetDirection;
     public float attackDelay = 0.2f;
+    public int powerValue = 1;
+    public int healthValue = 1;
 
     // Start is called before the first frame update
     void Start() {
@@ -46,6 +48,11 @@ public class AICharacter : Character {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
+    }
+
+    protected override void Die() {
+        base.Die();
+        GameObject.Find("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

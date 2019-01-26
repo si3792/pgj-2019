@@ -22,17 +22,6 @@ public class Character : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire1")) {
-            Attack();
-        }
-        if (Input.GetButtonDown("Fire2")) {
-            Attack();
-        }
-    }
-
     protected void Attack() {
         if (!attacking && canAttack) {
             if (facingRight) {
@@ -51,19 +40,12 @@ public class Character : MonoBehaviour
     private void ResetAttack() { canAttack = true; }
 
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        Attack attack = collision.GetComponent<Attack>();
-        if (attack!=null && !attack.isPlayerAttack) {
-            TakeDamage(attack.damage);
-        }
-    }
-
     protected void TakeDamage(int damage) {
         currentHitPoints-=damage;
         if (currentHitPoints == 0) { Die(); }
     }
 
-    protected void Die() {
+    protected virtual void Die() {
         gameObject.SetActive(false);
     }
 }
