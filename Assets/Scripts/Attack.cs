@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public bool isPlayerAttack;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -13,7 +14,6 @@ public class Attack : MonoBehaviour
     }
 
     private void ExecuteSelf() {
-        GetComponentInParent<Character>().attacking = false;
         gameObject.SetActive(false);
     }
 }
