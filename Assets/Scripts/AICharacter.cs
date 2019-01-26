@@ -59,6 +59,11 @@ public class AICharacter : Character {
         Attack attack = collision.GetComponent<Attack>();
         if (attack != null && attack.isPlayerAttack) {
             TakeDamage(attack.damage);
+            return;
+        }
+        PlayerMissile missle = collision.GetComponent<PlayerMissile>();
+        if(missle!=null) {
+            TakeDamage(missle.damage);
         }
     }
 }

@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
 
     protected void TakeDamage(int damage) {
         currentHitPoints-=damage;
-        if (currentHitPoints == 0) { Die(); }
+        if (currentHitPoints <= 0) { Die(); }
     }
 
     protected virtual void Die() {

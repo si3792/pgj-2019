@@ -12,6 +12,11 @@ public class PlayerCharacter : Character
     public int missileCost = 1;
     public float missileCoolDown = 5.0f;
     public bool canUseMissile = true;
+    public bool canUseBuff = true;
+    public float buffDuration = 3f;
+    public float buffCoolDown = 10f;
+    public int buffCost = 3;
+    private int buffedAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,9 @@ public class PlayerCharacter : Character
         }
         if (Input.GetButtonDown("Fire3")) {
             SpawnMissile();
+        }
+        if (Input.GetButtonDown("Submit")) {
+            CastBuff();
         }
     }
 
@@ -66,7 +74,6 @@ public class PlayerCharacter : Character
 
     private void SpawnMissile() {
         if (currentHitPoints <= missileCost || !canUseMissile || !canAttack) return;
-        Debug.Log(canUseMissile);
         Vector3 position = transform.position;
         position.x += facingRight ? 1 : -1;
         GameObject newMissile =  (GameObject)Instantiate(playeMissile, position, Quaternion.identity);
@@ -87,4 +94,21 @@ public class PlayerCharacter : Character
         canUseMissile = true;
         Debug.Log("Can use missile " + currentHitPoints);
     }
+
+    private void CastBuff() {
+        if(!canAttack || !canUseBuff || currentHitPoints <= buffCost) { return; }
+
+        buffedAmount = power;
+        power += buffedAmount;
+        Invoke("ResetAttackingFlag", attackTime);
+        Invoke("ResetAttack", attackCoolDown);
+        Invoke("ClearBuff", buffDuration);
+        Invoke("ResetBuff", buffCoolDown);
+    }
+
+    private void ClearBuff() {
+        power -= buffedAmount;
+    }
+
+    private void ResetBuff() { canUseBuff = true; }
 }

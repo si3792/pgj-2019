@@ -10,6 +10,7 @@ public class PlayerMissile : MonoBehaviour
     public float acceleration;
     public float range;
     private Vector3 targetPosition;
+    private bool targetSet = false;
 
     /*
     public void OnEnable() {
@@ -27,11 +28,13 @@ public class PlayerMissile : MonoBehaviour
         damage = Mathf.RoundToInt(power * powerMultiplire);
         goingRight = facingRight;
         targetPosition.x += goingRight ? range : -range;
+        targetSet = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!targetSet) return;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, acceleration);
         if(transform.position == targetPosition) { Destroy(this.gameObject); }
     }
