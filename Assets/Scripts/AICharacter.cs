@@ -57,40 +57,6 @@ public class AICharacter : Character {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
-
-        FlipSprite();
-    }
-
-    void FlipSprite()
-    {
-        GameObject player = GameObject.Find("Player");
-        if (player == null) return;
-        bool shouldFlipByX = false;
-        float playerAxisX = player.transform.position.x;
-        float NPCAxisX = this.transform.position.x;
-        if (looksAtRight)
-        {
-            if (!(playerAxisX > NPCAxisX))
-            {
-                shouldFlipByX = true;
-            } else
-            {
-                shouldFlipByX = false;
-            }
-        } else
-        {
-            if (!(playerAxisX < NPCAxisX))
-            {
-                shouldFlipByX = true;
-            } else
-            {
-                shouldFlipByX = false;
-            }
-        }
-        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) return;
-
-        spriteRenderer.flipX = shouldFlipByX;
     }
 
     protected override void Die() {

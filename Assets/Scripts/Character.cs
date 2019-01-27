@@ -40,7 +40,6 @@ public class Character : MonoBehaviour
     protected void SetAttackTriggers() {
         attacking = true;
         canAttack = false;
-        GetComponent<Animator>().SetTrigger("Attack");
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
     }

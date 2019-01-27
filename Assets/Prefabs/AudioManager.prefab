@@ -51,3 +51,10 @@ MonoBehaviour:
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
+  - name: mainTheme
+    clip: {fileID: 8300000, guid: aad468fd2e4544c4999c2602a33266a5, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 1
+    source: {fileID: 0}

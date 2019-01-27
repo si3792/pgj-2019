@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 8677458350603454191}
   - component: {fileID: 1484314153658871909}
   - component: {fileID: 8152578253420503040}
+  - component: {fileID: 2882186997661849019}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -409,6 +410,7 @@ MonoBehaviour:
   attackDelay: 0.2
   powerValue: 1
   healthValue: 1
+  looksAtRight: 0
   missle: {fileID: 1169136855}
 --- !u!58 &922901405
 CircleCollider2D:
@@ -460,8 +462,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -315337461
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eb3ebfc11c87066429d74a3d9275e509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -508,6 +510,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2882186997661849019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922901404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ca0aca6f4bf0c41a17aa9f31c27e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLeft: {fileID: 0}
+  attacking: 0
+  attackRight: {fileID: 0}
+  facingRight: 1
+  attackTime: 0.1
+  attackCoolDown: 0.5
+  canAttack: 1
+  maxHitPoints: 3
+  currentHitPoints: 3
+  power: 1
+  inAggroRange: 0
+  speed: 0
+  inAttackRange: 0
+  attackDelay: 0.2
+  powerValue: 1
+  healthValue: 1
+  looksAtRight: 0
+  missle: {fileID: 0}
 --- !u!1 &1059818001
 GameObject:
   m_ObjectHideFlags: 0
