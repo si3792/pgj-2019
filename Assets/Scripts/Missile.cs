@@ -31,6 +31,7 @@ public class Missile : MonoBehaviour
         goingRight = facingRight;
         targetPosition.x += goingRight ? range : -range;
         targetSet = true;
+        LookAtTarget();
     }
 
 

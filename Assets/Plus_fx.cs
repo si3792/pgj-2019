@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Plus_fx : MonoBehaviour
 {
+    public float delay=0f;
 
     public GameObject plus;
 
     void Start()
     {
-        Invoke("startFx", 0.5f);
+        Invoke("startFx", delay);
     }
 
 
