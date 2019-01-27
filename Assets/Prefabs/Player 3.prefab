@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45b050ede1262a4998fa56d29fc5bba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
 --- !u!50 &41848558
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45b050ede1262a4998fa56d29fc5bba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
 --- !u!1 &681262807
@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 6349246002731799082}
   - component: {fileID: 7670640605556845889}
   - component: {fileID: 938591629001068852}
+  - component: {fileID: 5323270948778425236}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Player
@@ -153,8 +154,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2641059e97c81154ca478fc44dce4165, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   acceleration: 5
   character: {fileID: 0}
   dashCooldown: 1
@@ -191,8 +192,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97a6a18731bbcf4095b820144d94a70, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   attackLeft: {fileID: 1748316909}
   attacking: 0
   attackRight: {fileID: 1609414168}
@@ -227,6 +228,7 @@ MonoBehaviour:
   AttackBuffAnimation: {fileID: 1506200912009559551, guid: 366d49b3ee447524ab21184a6828d8a0,
     type: 3}
   head: {fileID: 0}
+  healFx: {fileID: 7634122996501111003, guid: 333ef40475ff840b389a6a9b95b76618, type: 3}
 --- !u!212 &681262811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -290,10 +292,68 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6349246002731799082
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681262807}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2, y: 0}
+  m_Size: {x: 0.91, y: 3.94}
+  m_Direction: 0
+--- !u!114 &7670640605556845889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681262807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e480a915165aa4728a245b4f260acd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phantomColor: {r: 0, g: 0, b: 1, a: 1}
+  phantomLifetime: 0.5
+  phantomStep: 0.1
+  fadeoutPhantoms: 1
+--- !u!61 &938591629001068852
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681262807}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.68}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.49, y: 0.695}
+    oldSize: {x: 4.51, y: 6.55}
+    newSize: {x: 1.66, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.48, y: 5.37}
+  m_EdgeRadius: 0
 --- !u!60 &5323270948778425236
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -426,64 +486,6 @@ PolygonCollider2D:
       - {x: -0.885, y: -2.065}
       - {x: -0.885, y: -2.0449998}
       - {x: -0.575, y: -1.735}
---- !u!70 &6349246002731799082
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681262807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 0}
-  m_Size: {x: 0.91, y: 3.94}
-  m_Direction: 0
---- !u!114 &7670640605556845889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681262807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e480a915165aa4728a245b4f260acd33, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  phantomColor: {r: 0, g: 0, b: 1, a: 1}
-  phantomLifetime: 0.5
-  phantomStep: 0.1
-  fadeoutPhantoms: 1
---- !u!61 &938591629001068852
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681262807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.68}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49, y: 0.695}
-    oldSize: {x: 4.51, y: 6.55}
-    newSize: {x: 1.66, y: 1.76}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.48, y: 5.37}
-  m_EdgeRadius: 0
 --- !u!1 &1013993685
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +613,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fed90925b2478ec49b2b3b955d78351b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 1
   powerMultiplire: 1
   goingRight: 0
@@ -708,8 +710,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45b050ede1262a4998fa56d29fc5bba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
 --- !u!70 &1609414174
@@ -817,8 +819,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45b050ede1262a4998fa56d29fc5bba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
 --- !u!70 &1748316915
@@ -949,7 +951,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -963,8 +965,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f52e38f7695c5648b5c13963abdc484, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8202627055052331895
 PrefabInstance:
   m_ObjectHideFlags: 0
