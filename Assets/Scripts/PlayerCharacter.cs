@@ -23,6 +23,7 @@ public class PlayerCharacter : Character
     public bool isShielded = false;
     public int shieldCost = 3;
     private AudioManager audioManager;
+    public GameObject HitPointAnimation;
     
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,8 @@ public class PlayerCharacter : Character
         Missile missle = collision.GetComponent<Missile>();
         if (missle != null && !missle.isPlayerMissile) {
             TakeDamage(missle.damage);
+            Instantiate(HitPointAnimation, collision.gameObject.transform.position, transform.rotation);
+            Destroy(missle.gameObject);
         }
     }
 
