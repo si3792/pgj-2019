@@ -57,4 +57,11 @@ public class Character : MonoBehaviour
     protected virtual void Die() {
         gameObject.SetActive(false);
     }
+
+    public virtual void FlipSprite(bool shouldFlip) {       
+        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) return;
+
+        spriteRenderer.flipX = shouldFlip;
+    }
 }

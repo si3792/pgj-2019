@@ -8,7 +8,7 @@ public class RangedAICharacter : AICharacter
 
     protected override void Attack() {
         if (!canAttack || attacking) return;
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         if (player == null)
         {
             return;
@@ -20,5 +20,10 @@ public class RangedAICharacter : AICharacter
         newMissile.SetActive(true);
         newMissile.GetComponent<Missile>().SetTarget(target, position, facingRight, power);
         SetAttackTriggers();
+    }
+
+    protected override void SetTartgetDirection() {
+        base.SetTartgetDirection();
+        targetDirection.x = transform.position.x;
     }
 }

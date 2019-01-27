@@ -7,7 +7,7 @@ public class AICharacter : Character {
     public float speed;
     public bool inAttackRange;
     Rigidbody2D rigidBody;
-    private Vector3 targetDirection;
+    protected Vector3 targetDirection;
     public float attackDelay = 0.2f;
     public int powerValue = 1;
     public int healthValue = 1;
@@ -40,8 +40,8 @@ public class AICharacter : Character {
 
     
 
-    private void SetTartgetDirection() {
-        GameObject player = GameObject.Find("Player");
+    protected virtual void SetTartgetDirection() {
+        GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
 
         if (player.transform.position.x > transform.position.x && !facingRight)
@@ -57,11 +57,42 @@ public class AICharacter : Character {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
+
+        CheckForSpriteFlip();
+    }
+
+    public void CheckForSpriteFlip()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) return;
+        bool shouldFlipByX = false;
+        float playerAxisX = player.transform.position.x;
+        float NPCAxisX = this.transform.position.x;
+        if (looksAtRight)
+        {
+            if (!(playerAxisX > NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
+        } else
+        {
+            if (!(playerAxisX < NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
+        }
+        base.FlipSprite(shouldFlipByX);
     }
 
     protected override void Die() {
         base.Die();
-        GameObject.Find("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
+        GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
