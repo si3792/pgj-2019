@@ -36,9 +36,7 @@ public class AICharacter : Character {
             Invoke("Attack", attackDelay);
             animator.SetTrigger("Attack");
         }
-    }
-
-    
+    }    
 
     protected virtual void SetTartgetDirection() {
         GameObject player = GameObject.FindWithTag("Player");
