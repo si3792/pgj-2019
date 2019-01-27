@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8202627054814470506}
   - component: {fileID: 8202627054814470505}
+  - component: {fileID: 9101091341055902275}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -124,6 +125,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441506ca5c364d142a513ea2ef89c69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &9101091341055902275
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202627054814470507}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.85, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!1 &8202627054862616526
 GameObject:
   m_ObjectHideFlags: 0

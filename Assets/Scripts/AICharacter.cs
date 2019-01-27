@@ -6,7 +6,7 @@ public class AICharacter : Character {
     public bool inAggroRange;
     public float speed;
     public bool inAttackRange;
-    Rigidbody2D rigidBody;
+    protected Rigidbody2D rigidBody;
     protected Vector3 targetDirection;
     public float attackDelay = 0.2f;
     public int powerValue = 1;
