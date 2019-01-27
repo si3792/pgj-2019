@@ -87,6 +87,8 @@ public class PlayerCharacter : Character
         GameObject implosionPrefab = Instantiate(ImpolsionAnimation, this.transform.position, transform.rotation);
         implosionPrefab.transform.parent = this.transform;
 
+        GetComponent<Animator>().SetTrigger("Attack");
+
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ReserShockWave", shockWaveCoolDown);
