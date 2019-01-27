@@ -332,7 +332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 922901410}
   - component: {fileID: 922901407}
-  - component: {fileID: 922901406}
   - component: {fileID: 922901405}
   - component: {fileID: 8677458350603454191}
   - component: {fileID: 1484314153658871909}
@@ -382,36 +381,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &922901406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922901404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dba7e49f6e3aa544a2febdeeec3dd34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLeft: {fileID: 1285803491}
-  attacking: 0
-  attackRight: {fileID: 1963447752}
-  facingRight: 1
-  attackTime: 0.1
-  attackCoolDown: 1
-  canAttack: 1
-  maxHitPoints: 1
-  currentHitPoints: 1
-  power: 1
-  inAggroRange: 0
-  speed: 1
-  inAttackRange: 0
-  attackDelay: 0.2
-  powerValue: 1
-  healthValue: 1
-  looksAtRight: 0
-  missle: {fileID: 1169136855}
 --- !u!58 &922901405
 CircleCollider2D:
   m_ObjectHideFlags: 0
