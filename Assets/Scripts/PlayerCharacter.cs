@@ -86,8 +86,7 @@ public class PlayerCharacter : Character
         canAttack = false;
         canUseShockWave = false;
 
-        GameObject implosionPrefab = Instantiate(ImpolsionAnimation, this.transform.position, transform.rotation);
-        implosionPrefab.transform.parent = this.transform;
+        ImpolsionAnimation.SetActive(true);
 
         GetComponent<Animator>().SetTrigger("Attack");
 
