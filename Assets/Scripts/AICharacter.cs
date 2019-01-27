@@ -11,6 +11,7 @@ public class AICharacter : Character {
     public float attackDelay = 0.2f;
     public int powerValue = 1;
     public int healthValue = 1;
+    public bool looksAtRight;
     Animator animator;
 
     // Start is called before the first frame update
@@ -57,17 +58,41 @@ public class AICharacter : Character {
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
 
+        FlipSprite();
+    }
+
+    void FlipSprite()
+    {
         GameObject player = GameObject.Find("Player");
         if (player == null) return;
-        bool shouldFlipByX = true;
+        bool shouldFlipByX = false;
         float playerAxisX = player.transform.position.x;
         float NPCAxisX = this.transform.position.x;
-        if(playerAxisX > NPCAxisX)
+        if (looksAtRight)
         {
-            shouldFlipByX = false;
+            if (!(playerAxisX > NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
+        } else
+        {
+            if (!(playerAxisX < NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
         }
+
+        
+        
         SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) return;
+
         spriteRenderer.flipX = shouldFlipByX;
     }
 
