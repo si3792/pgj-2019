@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         } else
@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     public void Play(String name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        if (s == null)
         {
             Debug.Log("Sound with name = " + name + " not found!");
             return;
@@ -61,5 +61,25 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    public Sound[] getSounds()
+    {
+        return sounds;
+    }
+
+    public System.Collections.Generic.List<Sound> getSpookySounds() {
+        System.Collections.Generic.List<Sound> sounds = new System.Collections.Generic.List<Sound>();
+        
+        foreach (Sound s in sounds)
+        {
+            if (s.RandomSound)
+            {
+                sounds.Add(s);
+            }
+        }
+        return sounds;
+        //int randomSpookyNumber = UnityEngine.Random.Range(1, 6);
+        //String SpookyNameSound = "Spooky" + randomSpookyNumber;
     }
 }
