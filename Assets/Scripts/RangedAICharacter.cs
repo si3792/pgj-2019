@@ -8,7 +8,7 @@ public class RangedAICharacter : AICharacter
 
     protected override void Attack() {
         if (!canAttack || attacking) return;
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         if (player == null)
         {
             return;

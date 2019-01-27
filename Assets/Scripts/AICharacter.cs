@@ -41,7 +41,7 @@ public class AICharacter : Character {
     
 
     private void SetTartgetDirection() {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
 
         if (player.transform.position.x > transform.position.x && !facingRight)
@@ -58,12 +58,12 @@ public class AICharacter : Character {
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
 
-        FlipSprite();
+        CheckForSpriteFlip();
     }
 
-    void FlipSprite()
+    public void CheckForSpriteFlip()
     {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
         bool shouldFlipByX = false;
         float playerAxisX = player.transform.position.x;
@@ -87,15 +87,12 @@ public class AICharacter : Character {
                 shouldFlipByX = false;
             }
         }
-        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) return;
-
-        spriteRenderer.flipX = shouldFlipByX;
+        base.FlipSprite(shouldFlipByX);
     }
 
     protected override void Die() {
         base.Die();
-        GameObject.Find("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
+        GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>().PowerUp(powerValue,healthValue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

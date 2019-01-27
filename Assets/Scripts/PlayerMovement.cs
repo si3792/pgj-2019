@@ -37,8 +37,14 @@ public class PlayerMovement : MonoBehaviour
         float yInput = Input.GetAxis("Vertical");
 
         Vector2 dirVector = new Vector2(xInput, yInput);
-        if (xInput >= 0.1f) { character.facingRight = true; }
-        if (xInput <= -0.1f) { character.facingRight = false; }
+        if (xInput >= 0.1f) {            
+            character.facingRight = true;
+            character.FlipSprite(!character.facingRight);
+        }
+        if (xInput <= -0.1f) {           
+            character.facingRight = false;
+            character.FlipSprite(!character.facingRight);
+        }
         if (willDash) {
             Debug.Log("Dashing");
             rigidBody.AddForce(dirVector * acceleration * dashAcceleration, ForceMode2D.Force);
