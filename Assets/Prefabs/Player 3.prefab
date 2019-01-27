@@ -213,6 +213,7 @@ MonoBehaviour:
   ImpolsionAnimation: {fileID: 7422764589510625299}
   AttackBuffAnimation: {fileID: 1506200910917522212}
   head: {fileID: 0}
+  healFx: {fileID: 0}
 --- !u!212 &681262811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -328,8 +329,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.68}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49, y: 0.695}
-    oldSize: {x: 4.51, y: 6.55}
+    pivot: {x: 0.489, y: 0.563}
+    oldSize: {x: 4.51, y: 8.17}
     newSize: {x: 1.66, y: 1.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -354,8 +355,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49, y: 0.695}
-    oldSize: {x: 4.51, y: 6.55}
+    pivot: {x: 0.489, y: 0.563}
+    oldSize: {x: 4.51, y: 8.17}
     newSize: {x: 1.66, y: 1.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -842,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7842079976573183279
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,6 +1145,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 681262813}
     m_Modifications:
+    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 8202627054814470506, guid: 1a68dd9e1c7050546a28776beea89149,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1198,11 +1204,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a68dd9e1c7050546a28776beea89149, type: 3}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine.Audio;
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 
@@ -68,18 +69,15 @@ public class AudioManager : MonoBehaviour
         return sounds;
     }
 
-    public System.Collections.Generic.List<Sound> getSpookySounds() {
-        System.Collections.Generic.List<Sound> sounds = new System.Collections.Generic.List<Sound>();
-        
-        foreach (Sound s in sounds)
+    public List<Sound> getSpookySounds() {
+        List<Sound> spookySounds = new List<Sound>();
+        foreach (Sound s in getSounds())
         {
             if (s.RandomSound)
             {
-                sounds.Add(s);
+                spookySounds.Add(s);
             }
         }
-        return sounds;
-        //int randomSpookyNumber = UnityEngine.Random.Range(1, 6);
-        //String SpookyNameSound = "Spooky" + randomSpookyNumber;
+        return spookySounds;
     }
 }
