@@ -23,6 +23,9 @@ public class PlayerCharacter : Character
     public bool isShielded = false;
     public int shieldCost = 3;
     private AudioManager audioManager;
+    public GameObject HitPointAnimation;
+    public GameObject ImpolsionAnimation;
+    public GameObject AttackBuffAnimation;
     
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,8 @@ public class PlayerCharacter : Character
         Missile missle = collision.GetComponent<Missile>();
         if (missle != null && !missle.isPlayerMissile) {
             TakeDamage(missle.damage);
+            Instantiate(HitPointAnimation, collision.gameObject.transform.position, transform.rotation);
+            Destroy(missle.gameObject);
         }
     }
 
@@ -78,6 +83,10 @@ public class PlayerCharacter : Character
         attacking = true;
         canAttack = false;
         canUseShockWave = false;
+
+        GameObject implosionPrefab = Instantiate(ImpolsionAnimation, this.transform.position, transform.rotation);
+        implosionPrefab.transform.parent = this.transform;
+
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ReserShockWave", shockWaveCoolDown);
@@ -117,6 +126,10 @@ public class PlayerCharacter : Character
         buffedAmount = power;
         power += buffedAmount;
         TakeDamage(buffCost);
+
+        GameObject attackBuff = Instantiate(AttackBuffAnimation, this.transform.position, transform.rotation);
+        attackBuff.transform.parent = this.transform;
+
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ClearBuff", buffDuration);

@@ -19,7 +19,9 @@ public class Missile : MonoBehaviour
         SetPosition(currentPosition, facingRight, power);
         this.targetPosition = targetPosition;
         blockMovement = false;
-        
+
+        LookAtTarget();
+
     }
 
     public void SetPosition(Vector3 currentPosition, bool facingRight, int power) {
@@ -35,7 +37,16 @@ public class Missile : MonoBehaviour
     void Update()
     {
         if (!targetSet || blockMovement) return;
+        
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, acceleration);
         if(transform.position == targetPosition) {Debug.Log("Destroying"); Destroy(this.gameObject); }
     }
+
+    private void LookAtTarget()
+    {
+        Vector3 diff = Vector3.Normalize(targetPosition - transform.position);
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+    }
+
 }

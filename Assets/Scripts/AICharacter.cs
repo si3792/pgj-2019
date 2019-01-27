@@ -11,9 +11,16 @@ public class AICharacter : Character {
     public float attackDelay = 0.2f;
     public int powerValue = 1;
     public int healthValue = 1;
+    public bool looksAtRight;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start() {
+        animator = GetComponent<Animator>();
+        if(animator == null)
+        {
+            Debug.Log("deiba");
+        }
         rigidBody = GetComponent<Rigidbody2D>();
         base.Start();
     }
@@ -27,6 +34,7 @@ public class AICharacter : Character {
         if (inAttackRange && canAttack) {
             rigidBody.velocity = Vector2.zero;
             Invoke("Attack", attackDelay);
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -49,6 +57,40 @@ public class AICharacter : Character {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
+
+        FlipSprite();
+    }
+
+    void FlipSprite()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player == null) return;
+        bool shouldFlipByX = false;
+        float playerAxisX = player.transform.position.x;
+        float NPCAxisX = this.transform.position.x;
+        if (looksAtRight)
+        {
+            if (!(playerAxisX > NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
+        } else
+        {
+            if (!(playerAxisX < NPCAxisX))
+            {
+                shouldFlipByX = true;
+            } else
+            {
+                shouldFlipByX = false;
+            }
+        }
+        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) return;
+
+        spriteRenderer.flipX = shouldFlipByX;
     }
 
     protected override void Die() {
