@@ -40,7 +40,7 @@ public class PlayerCharacter : Character
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
-            Attack();
+           Attack();
         }
         if (Input.GetButtonDown("Fire2")) {
             SpawnShockWave();

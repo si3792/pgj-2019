@@ -42,6 +42,9 @@ public class Character : MonoBehaviour
         canAttack = false;
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
+
+        var playerAnim = GetComponent<Animator>();
+        if (playerAnim) playerAnim.SetTrigger("Whip");
     }
 
     private void ResetAttackingFlag() { attacking = false; }
