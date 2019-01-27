@@ -50,11 +50,53 @@ MonoBehaviour:
     pitch: 1
     playOnAwake: 0
     loop: 1
+    RandomSound: 0
+    source: {fileID: 0}
+  - name: Spooky1
+    clip: {fileID: 8300000, guid: dc25d697d7bd9064596b5ac3c769280b, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    RandomSound: 1
+    source: {fileID: 0}
+  - name: Spooky2
+    clip: {fileID: 8300000, guid: c4faa004dcb203649a3acf79668a2d0c, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    RandomSound: 1
+    source: {fileID: 0}
+  - name: Spooky3
+    clip: {fileID: 8300000, guid: 2b54fe24f6c92de458ac47a680a9673d, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    RandomSound: 1
+    source: {fileID: 0}
+  - name: Spooky4
+    clip: {fileID: 8300000, guid: 6ef2c0a2a5918eb4ea6c6d0a9e98589b, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    RandomSound: 1
+    source: {fileID: 0}
+  - name: Spooky5
+    clip: {fileID: 8300000, guid: 420050713d82da64f86d5b7dd58b7836, type: 3}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    RandomSound: 1
     source: {fileID: 0}
   - name: mainTheme
     clip: {fileID: 8300000, guid: aad468fd2e4544c4999c2602a33266a5, type: 3}
     volume: 1
     pitch: 1
     playOnAwake: 0
-    loop: 1
+    loop: 0
+    RandomSound: 1
     source: {fileID: 0}
