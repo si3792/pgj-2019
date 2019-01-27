@@ -6,6 +6,17 @@ public class RangedAICharacter : AICharacter
 {
     public GameObject missle;
 
+    private void Update() {
+        if (inAggroRange) {
+            SetTartgetDirection();
+            MoveTowardsTarget();
+        }
+        if(inAttackRange && canAttack) {
+            Invoke("Attack", attackDelay);
+            animator.SetTrigger("Attack");
+        }
+    }
+
     protected override void Attack() {
         if (!canAttack || attacking) return;
         GameObject player = GameObject.FindWithTag("Player");

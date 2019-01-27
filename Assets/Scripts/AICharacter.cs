@@ -12,7 +12,7 @@ public class AICharacter : Character {
     public int powerValue = 1;
     public int healthValue = 1;
     public bool looksAtRight;
-    Animator animator;
+    protected Animator animator;
 
     // Start is called before the first frame update
     void Start() {
@@ -52,7 +52,7 @@ public class AICharacter : Character {
         CheckForSpriteFlip();
     }
 
-    private void MoveTowardsTarget() {
+    protected void MoveTowardsTarget() {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
