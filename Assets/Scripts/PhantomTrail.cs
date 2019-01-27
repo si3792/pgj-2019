@@ -34,6 +34,7 @@ public class PhantomTrail : MonoBehaviour {
         phantom.transform.position = this.transform.position;
         SpriteRenderer renderer = phantom.AddComponent<SpriteRenderer>();
         renderer.color = phantomColor;
+        renderer.transform.localScale = this.transform.localScale;
         renderer.sprite = this.GetComponent<SpriteRenderer>().sprite;
         renderer.flipX = this.GetComponent<SpriteRenderer>().flipX;
         renderer.sortingLayerName = GetComponent<SpriteRenderer>().sortingLayerName;
