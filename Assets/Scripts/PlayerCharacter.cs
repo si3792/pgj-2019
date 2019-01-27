@@ -26,12 +26,14 @@ public class PlayerCharacter : Character
     public GameObject HitPointAnimation;
     public GameObject ImpolsionAnimation;
     public GameObject AttackBuffAnimation;
+    public PlayerHead head;
     
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
         audioManager = FindObjectOfType<AudioManager>();
+        head = GetComponentInChildren<PlayerHead>();
     }
 
     // Update is called once per frame
@@ -167,6 +169,11 @@ public class PlayerCharacter : Character
         }
         TriggerLowAudio();
         Debug.Log(currentHitPoints);
+    }
+
+    public override void FlipSprite(bool direction) {
+        base.FlipSprite(direction);
+        head.Flip(direction);
     }
 
     private void TriggerLowAudio()

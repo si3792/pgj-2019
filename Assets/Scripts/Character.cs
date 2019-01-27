@@ -58,10 +58,10 @@ public class Character : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public virtual void FlipSprite(bool shouldFlip) {       
+    public virtual void FlipSprite(bool direction) {       
         SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) return;
 
-        spriteRenderer.flipX = shouldFlip;
+        spriteRenderer.flipX = direction;
     }
 }

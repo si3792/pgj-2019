@@ -226,6 +226,7 @@ MonoBehaviour:
     type: 3}
   AttackBuffAnimation: {fileID: 1506200912009559551, guid: 366d49b3ee447524ab21184a6828d8a0,
     type: 3}
+  head: {fileID: 0}
 --- !u!212 &681262811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ GameObject:
   - component: {fileID: 8176246494217349694}
   - component: {fileID: 6422251167841923220}
   - component: {fileID: 1151784840815109305}
+  - component: {fileID: 5353641002269312768}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -969,6 +971,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5353641002269312768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635725941911097447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f52e38f7695c5648b5c13963abdc484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8202627055052331895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -976,11 +990,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 681262813}
     m_Modifications:
-    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 8202627054814470506, guid: 1a68dd9e1c7050546a28776beea89149,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1035,6 +1044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a68dd9e1c7050546a28776beea89149, type: 3}
