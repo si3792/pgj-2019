@@ -21,4 +21,9 @@ public class RangedAICharacter : AICharacter
         newMissile.GetComponent<Missile>().SetTarget(target, position, facingRight, power);
         SetAttackTriggers();
     }
+
+    protected override void SetTartgetDirection() {
+        base.SetTartgetDirection();
+        targetDirection.x = transform.position.x;
+    }
 }

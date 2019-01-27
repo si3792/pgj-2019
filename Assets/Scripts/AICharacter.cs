@@ -7,7 +7,7 @@ public class AICharacter : Character {
     public float speed;
     public bool inAttackRange;
     Rigidbody2D rigidBody;
-    private Vector3 targetDirection;
+    protected Vector3 targetDirection;
     public float attackDelay = 0.2f;
     public int powerValue = 1;
     public int healthValue = 1;
@@ -40,7 +40,7 @@ public class AICharacter : Character {
 
     
 
-    private void SetTartgetDirection() {
+    protected virtual void SetTartgetDirection() {
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
 
