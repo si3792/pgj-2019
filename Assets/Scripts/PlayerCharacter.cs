@@ -25,6 +25,7 @@ public class PlayerCharacter : Character
     private AudioManager audioManager;
     public GameObject HitPointAnimation;
     public GameObject ImpolsionAnimation;
+    public GameObject AttackBuffAnimation;
     
     // Start is called before the first frame update
     void Start()
@@ -125,6 +126,10 @@ public class PlayerCharacter : Character
         buffedAmount = power;
         power += buffedAmount;
         TakeDamage(buffCost);
+
+        GameObject attackBuff = Instantiate(AttackBuffAnimation, this.transform.position, transform.rotation);
+        attackBuff.transform.parent = this.transform;
+
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ClearBuff", buffDuration);

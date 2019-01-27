@@ -11,9 +11,15 @@ public class AICharacter : Character {
     public float attackDelay = 0.2f;
     public int powerValue = 1;
     public int healthValue = 1;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start() {
+        animator = GetComponent<Animator>();
+        if(animator == null)
+        {
+            Debug.Log("deiba");
+        }
         rigidBody = GetComponent<Rigidbody2D>();
         base.Start();
     }
@@ -27,6 +33,7 @@ public class AICharacter : Character {
         if (inAttackRange && canAttack) {
             rigidBody.velocity = Vector2.zero;
             Invoke("Attack", attackDelay);
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -49,6 +56,19 @@ public class AICharacter : Character {
         Vector3 direction = targetDirection - transform.position;
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
+
+        GameObject player = GameObject.Find("Player");
+        if (player == null) return;
+        bool shouldFlipByX = true;
+        float playerAxisX = player.transform.position.x;
+        float NPCAxisX = this.transform.position.x;
+        if(playerAxisX > NPCAxisX)
+        {
+            shouldFlipByX = false;
+        }
+        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) return;
+        spriteRenderer.flipX = shouldFlipByX;
     }
 
     protected override void Die() {
