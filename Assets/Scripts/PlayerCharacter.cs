@@ -27,6 +27,7 @@ public class PlayerCharacter : Character
     public GameObject ImpolsionAnimation;
     public GameObject AttackBuffAnimation;
     public PlayerHead head;
+    public GameObject healFx;
     
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,7 @@ public class PlayerCharacter : Character
     public override void PowerUp(int powerValue, int healthValue) {
         power += powerValue;
         currentHitPoints += healthValue;
+        Instantiate(healFx, transform);
         if (currentHitPoints > maxHitPoints) { maxHitPoints += currentHitPoints - maxHitPoints; }
         Debug.Log(power + " " + currentHitPoints + " " + maxHitPoints);
         base.PowerUp(powerValue, healthValue);
