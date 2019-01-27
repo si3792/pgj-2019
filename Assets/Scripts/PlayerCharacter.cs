@@ -26,7 +26,6 @@ public class PlayerCharacter : Character
     public GameObject HitPointAnimation;
     public GameObject ImpolsionAnimation;
     public GameObject AttackBuffAnimation;
-    public PlayerHead head;
     public GameObject healFx;
     
     // Start is called before the first frame update
@@ -34,7 +33,6 @@ public class PlayerCharacter : Character
     {
         base.Start();
         audioManager = FindObjectOfType<AudioManager>();
-        head = GetComponentInChildren<PlayerHead>();
     }
 
     // Update is called once per frame
@@ -174,7 +172,6 @@ public class PlayerCharacter : Character
 
     public override void FlipSprite(bool direction) {
         base.FlipSprite(direction);
-        head.Flip(direction);
     }
 
     private void TriggerLowAudio()

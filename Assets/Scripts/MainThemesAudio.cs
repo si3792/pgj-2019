@@ -8,7 +8,7 @@ public class MainThemesAudio : MonoBehaviour
 
     private bool isPlaying = false;
     public int randomSpookyPlayerInSeconds = 0;
-    System.Collections.Generic.List<Sound> spookySounds;
+    List<Sound> spookySounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class MainThemesAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isPlayingSpooky() && !flagIsPlayingSpookie)
+        if(!flagIsPlayingSpookie)
         {
             int num = Random.Range(1, spookySounds.Count + 1);
             int secMargin = Random.Range(5, randomSpookyPlayerInSeconds + 1);
@@ -37,15 +37,5 @@ public class MainThemesAudio : MonoBehaviour
     {
         flagIsPlayingSpookie = false;
         audioManager.Play(this.spookieSoundName);
-    }
-
-    private bool isPlayingSpooky()
-    {
-        bool playing = false;
-        foreach (Sound s in spookySounds)
-        {
-            if (s.source.isPlaying) return true;
-        }
-        return playing;
     }
 }
