@@ -133,8 +133,7 @@ public class PlayerCharacter : Character
         power += buffedAmount;
         TakeDamage(buffCost);
 
-        GameObject attackBuff = Instantiate(AttackBuffAnimation, this.transform.position, transform.rotation);
-        attackBuff.transform.parent = this.transform;
+        AttackBuffAnimation.SetActive(true);
 
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
@@ -144,6 +143,7 @@ public class PlayerCharacter : Character
 
     private void ClearBuff() {
         power -= buffedAmount;
+        AttackBuffAnimation.SetActive(false);
     }
 
     private void ResetBuff() { canUseBuff = true; }
