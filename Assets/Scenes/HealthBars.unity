@@ -271,6 +271,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8852847236315911464, guid: 8efb6f8b5db48e543b0d19c60d289bfc,
         type: 3}
+    - target: {fileID: 6255121519787717664, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: ImpolsionAnimation
+      value: 
+      objectReference: {fileID: 7422764590492252847, guid: 4d557222c3d53d84f9ac9da4d1792d31,
+        type: 3}
+    - target: {fileID: 3555439746949207990, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555439746949207990, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972230563301005046, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfd812c351031454f872143de9db9ad3,
+        type: 3}
+    - target: {fileID: 2972230563301005046, guid: 9e124e7a7d8bcb1498492a894491f3ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6445033690448939493, guid: 9e124e7a7d8bcb1498492a894491f3ee, type: 3}
     - {fileID: 6445033692391085718, guid: 9e124e7a7d8bcb1498492a894491f3ee, type: 3}
@@ -508,7 +535,7 @@ GameObject:
   - component: {fileID: 1582912160}
   - component: {fileID: 1582912159}
   m_Layer: 0
-  m_Name: GolemiqImage
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

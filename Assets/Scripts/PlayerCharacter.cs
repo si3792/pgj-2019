@@ -24,6 +24,7 @@ public class PlayerCharacter : Character
     public int shieldCost = 3;
     private AudioManager audioManager;
     public GameObject HitPointAnimation;
+    public GameObject ImpolsionAnimation;
     
     // Start is called before the first frame update
     void Start()
@@ -81,6 +82,10 @@ public class PlayerCharacter : Character
         attacking = true;
         canAttack = false;
         canUseShockWave = false;
+
+        GameObject implosionPrefab = Instantiate(ImpolsionAnimation, this.transform.position, transform.rotation);
+        implosionPrefab.transform.parent = this.transform;
+
         Invoke("ResetAttackingFlag", attackTime);
         Invoke("ResetAttack", attackCoolDown);
         Invoke("ReserShockWave", shockWaveCoolDown);

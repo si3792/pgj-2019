@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCameraUtils : MonoBehaviour
+public class MainThemesAudio : MonoBehaviour
 {
     private AudioManager audioManager;
     // Start is called before the first frame update
