@@ -49,6 +49,7 @@ public class AICharacter : Character {
 
 
         targetDirection = player.transform.position;
+        CheckForSpriteFlip();
     }
 
     private void MoveTowardsTarget() {
@@ -56,7 +57,6 @@ public class AICharacter : Character {
         direction.Normalize();
         rigidBody.AddForce(direction * speed, ForceMode2D.Force);
 
-        CheckForSpriteFlip();
     }
 
     public void CheckForSpriteFlip()

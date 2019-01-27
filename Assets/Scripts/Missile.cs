@@ -18,6 +18,7 @@ public class Missile : MonoBehaviour
         blockMovement = true;
         SetPosition(currentPosition, facingRight, power);
         this.targetPosition = targetPosition;
+        targetPosition.x += goingRight ? range : -range;
         blockMovement = false;
 
         LookAtTarget();
