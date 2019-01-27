@@ -311,7 +311,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49, y: 0.695}
     oldSize: {x: 4.51, y: 6.55}
     newSize: {x: 1.66, y: 1.76}
     adaptiveTilingThreshold: 0.5
@@ -475,7 +475,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.38}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49, y: 0.695}
     oldSize: {x: 4.51, y: 6.55}
     newSize: {x: 1.66, y: 1.76}
     adaptiveTilingThreshold: 0.5
@@ -632,7 +632,6 @@ GameObject:
   - component: {fileID: 1609414172}
   - component: {fileID: 1609414171}
   - component: {fileID: 1609414169}
-  - component: {fileID: 1609414170}
   - component: {fileID: 1609414174}
   m_Layer: 0
   m_Name: AttackRight
@@ -649,8 +648,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609414168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.1, y: -1.12, z: 0}
+  m_LocalScale: {x: 2.4125874, y: 2.4125874, z: 2.4125874}
   m_Children: []
   m_Father: {fileID: 681262813}
   m_RootOrder: 0
@@ -670,7 +669,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609414168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -714,27 +713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
---- !u!50 &1609414170
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609414168}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!70 &1609414174
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -763,7 +741,6 @@ GameObject:
   - component: {fileID: 1748316913}
   - component: {fileID: 1748316912}
   - component: {fileID: 1748316910}
-  - component: {fileID: 1748316911}
   - component: {fileID: 1748316915}
   m_Layer: 0
   m_Name: AttackLeft
@@ -780,8 +757,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748316909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.313, y: -1.12, z: 0}
+  m_LocalScale: {x: 2.4125874, y: 2.4125874, z: 2.4125874}
   m_Children: []
   m_Father: {fileID: 681262813}
   m_RootOrder: 1
@@ -801,7 +778,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748316909}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -845,27 +822,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerAttack: 1
   damage: 1
---- !u!50 &1748316911
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748316909}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!70 &1748316915
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -910,7 +866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2635725941911097447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 2.7, z: -0.046386153}
+  m_LocalPosition: {x: 0.01, y: 1.75, z: -0.046386153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 681262813}
@@ -1017,6 +973,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 681262813}
     m_Modifications:
+    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 8202627054814470506, guid: 1a68dd9e1c7050546a28776beea89149,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1025,7 +986,7 @@ PrefabInstance:
     - target: {fileID: 8202627054814470506, guid: 1a68dd9e1c7050546a28776beea89149,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.96
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 8202627054814470506, guid: 1a68dd9e1c7050546a28776beea89149,
         type: 3}
@@ -1071,11 +1032,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8202627054814470507, guid: 1a68dd9e1c7050546a28776beea89149,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a68dd9e1c7050546a28776beea89149, type: 3}
