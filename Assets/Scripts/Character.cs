@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     public int maxHitPoints = 3;
     public int currentHitPoints = 3;
     public int power = 1;
+    public float atackAnimaionDelay = 0.03f;
     private HealthBar healthBar;
 
     // Start is called before the first frame update
@@ -24,13 +25,17 @@ public class Character : MonoBehaviour
 
     protected virtual void Attack() {
         if (!attacking && canAttack) {
-            if (facingRight) {
-                attackRight.gameObject.SetActive(true);
-
-            }
-            else { attackLeft.gameObject.SetActive(true); }
+            Invoke("SpawnHitBox", atackAnimaionDelay);
             SetAttackTriggers();
         }
+    }
+
+    private void SpawnHitBox() {
+        if (facingRight) {
+            attackRight.gameObject.SetActive(true);
+
+        }
+        else { attackLeft.gameObject.SetActive(true); }
     }
 
     public virtual void PowerUp(int powerValue, int healthValue) {
