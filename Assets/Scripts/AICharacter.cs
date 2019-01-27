@@ -87,9 +87,6 @@ public class AICharacter : Character {
                 shouldFlipByX = false;
             }
         }
-
-        
-        
         SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) return;
 

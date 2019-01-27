@@ -224,7 +224,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6012087959359292385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,11 +248,11 @@ MonoBehaviour:
   currentHitPoints: 1
   power: 1
   inAggroRange: 0
-  speed: 1
+  speed: 2
   inAttackRange: 0
   attackDelay: 0.2
-  powerValue: 1
-  healthValue: 1
+  powerValue: 2
+  healthValue: 5
   looksAtRight: 0
   missle: {fileID: 6542533316080253536}
 --- !u!212 &8682989073681488245
